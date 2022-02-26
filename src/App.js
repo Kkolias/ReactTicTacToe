@@ -4,7 +4,7 @@ import GameScreen from './components/GameScreen';
 import WinningScreen from './components/WinningScreen';
 import NewGame from './components/NewGame';
 
-function App(props) {
+function App() {
   const [isGame, setGame] = useState(false);
   const [gameEnd, endGame] = useState(false);
   const [newGame, startGame] = useState(true);

@@ -3,9 +3,14 @@ import './NewGame.css'
 
 export default function NewGame(props) {
 
-    const handlePvb = () => {
-        props.onStart(true)
-        props.startVisible(false)
+    const handlePvb = (e) => {
+        // props.onStart(true)
+        // props.startVisible(false)
+      e.target.innerHTML = "Under work!";
+      setTimeout(() => {
+        e.target.innerHTML = "Play against bot"
+      }, 2000);
+      return;
     }
     const handlePvp = () => {
         props.onStart(true)

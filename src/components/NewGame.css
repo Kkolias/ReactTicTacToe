@@ -22,6 +22,12 @@
     -moz-box-shadow: 0px 5px 0px 0px rgba(46,168,163,1);
     cursor: pointer;
 }
+.play-against-bot:active {
+    box-shadow: 0px 2px 0px 0px rgba(46,168,163,1);
+    -webkit-box-shadow: 0px 2px 0px 0px rgba(46,168,163,1);
+    -moz-box-shadow: 0px 2px 0px 0px rgba(46,168,163,1);
+    transform: translateY(10%);
+}
 .play-against-player {
     margin: auto;
     width: 90%;
@@ -36,4 +42,10 @@
     -webkit-box-shadow: 0px 5px 0px 0px rgb(194, 143, 48);
     -moz-box-shadow: 0px 5px 0px 0px rgb(194, 143, 48);
     cursor: pointer;
+}
+.play-against-player:active {
+    box-shadow: 0px 2px 0px 0px rgb(194, 143, 48);
+    -webkit-box-shadow: 0px 2px 0px 0px rgb(194, 143, 48);
+    -moz-box-shadow: 0px 2px 0px 0px rgb(194, 143, 48);
+    transform: translateY(10%)
 }
