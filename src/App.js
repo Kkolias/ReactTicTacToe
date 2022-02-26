@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import GameScreen from './components/GameScreen';
+import WinningScreen from './components/WinningScreen';
+import NewGame from './components/NewGame';
 
-function App() {
+function App(props) {
+  const [isGame, setGame] = useState(false);
+  const [gameEnd, endGame] = useState(false);
+  const [newGame, startGame] = useState(true);
+  const [isWinner, setWinner] = useState("");
+  const [isRematch, setRematch] = useState(false)
+  
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2 className="header">Tic Tac Toe</h2>
+      <div class="total-container">
+        {isGame && <GameScreen isRematch={isRematch} gameEnd={gameEnd} setRematch={setRematch} setWinner={setWinner} endGame={endGame}/>}
+        {newGame && <NewGame onStart={setGame} startVisible={startGame}/>}
+      </div>
+       {gameEnd && <WinningScreen setRematch={setRematch} setWinner={isWinner} startGame={startGame} setGame={setGame} endGame={endGame}/>}
     </div>
   );
 }

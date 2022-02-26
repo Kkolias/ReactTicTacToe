@@ -1,0 +1,39 @@
+.new-game-container {
+    transform: translateY(100%);
+    font-size: 35px;
+    font-weight: 600;
+    position: relative;
+
+}
+.newgame {
+    padding-bottom: 10px;
+}
+.play-against-bot {
+    margin: auto;
+    width: 90%;
+    height: 60px;
+    align-self: flex-end;
+    background-color: #31c4be;
+    border-radius: 10px; 
+    color: black;
+    line-height: 60px;
+    box-shadow: 0px 5px 0px 0px rgba(46,168,163,1);
+    -webkit-box-shadow: 0px 5px 0px 0px rgba(46,168,163,1);
+    -moz-box-shadow: 0px 5px 0px 0px rgba(46,168,163,1);
+    cursor: pointer;
+}
+.play-against-player {
+    margin: auto;
+    width: 90%;
+    height: 60px;
+    align-self: flex-end;
+    background-color: #f3b138;
+    border-radius: 10px; 
+    color: black;
+    line-height: 60px;
+    margin-top: 20px;
+    box-shadow: 0px 5px 0px 0px rgb(194, 143, 48);
+    -webkit-box-shadow: 0px 5px 0px 0px rgb(194, 143, 48);
+    -moz-box-shadow: 0px 5px 0px 0px rgb(194, 143, 48);
+    cursor: pointer;
+}
