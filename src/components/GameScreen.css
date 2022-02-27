@@ -37,6 +37,9 @@
     border-radius: 5px;
     background-color: #31c4be;
     align-self: center;
+    line-height: 20px;
+    color: #1f3540;
+    font-weight: 600;
 }
 .turn-yellow {
     background-color: #f3b138;
@@ -115,4 +118,29 @@
 }
 .selected-circle {
     background-color: #f3b138;
+}
+@media screen and (max-width: 450px) {
+    .tiles {
+        width: 100%;
+        height: 100vw;
+    }
+    .tile {
+        width: 30%;
+        height: 30vw;
+        font-size: 60px;
+        line-height: 30vw;
+    }
+    .score-cross {
+        width: 30%;
+        height: 60px;
+    }
+    .score-tie {
+        width: 30%;
+        height: 60px;
+        font-size: 90%;
+    }
+    .score-circle {
+        width: 30%;
+        height: 60px;
+    }
 }

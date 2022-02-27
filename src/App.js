@@ -9,7 +9,8 @@ function App() {
   const [gameEnd, endGame] = useState(false);
   const [newGame, startGame] = useState(true);
   const [isWinner, setWinner] = useState("");
-  const [isRematch, setRematch] = useState(false)
+  const [isRematch, setRematch] = useState(false);
+  
   
  
   return (

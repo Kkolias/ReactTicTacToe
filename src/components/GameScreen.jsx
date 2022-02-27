@@ -6,6 +6,9 @@ export default function GameScreen(props) {
   const [isXTurn, setIsXTurn] = useState(true);
   const [arrX, setArrX] = useState([])
   const [arrO, setArrO] = useState([])
+  const [scoreX, setScoreX] = useState(0);
+  const [scoreO, setScoreO] = useState(0);
+  const [scoreTie, setScoreTie] = useState(0);
   // const [isWinner, setWinner] = useState("")
 
   const checkWinner = (arrX, arrO) => {
@@ -30,6 +33,7 @@ export default function GameScreen(props) {
       && arrXString.includes(JSON.stringify(winningArrays[i][1]).slice(1,-1)) 
       && arrXString.includes(JSON.stringify(winningArrays[i][2]).slice(1,-1))) 
       {
+        setScoreX(scoreX + 1)
         props.setWinner("Blue wins the round!")
         props.endGame(true)
         return;
@@ -38,6 +42,7 @@ export default function GameScreen(props) {
       && arrOString.includes(JSON.stringify(winningArrays[i][1]).slice(1,-1)) 
       && arrOString.includes(JSON.stringify(winningArrays[i][2]).slice(1,-1))) 
       {
+        setScoreO(scoreO + 1)
         props.setWinner("Yellow wins the round!")
         props.endGame(true)
         return;
@@ -45,6 +50,7 @@ export default function GameScreen(props) {
         
     }
     if(arrX.length === 5) {
+      setScoreTie(scoreTie + 1)
       props.setWinner("Tie! No winner.");
       props.endGame(true)
       return;
@@ -62,6 +68,7 @@ export default function GameScreen(props) {
       e.target.classList.toggle('selected-cross');
       e.target.innerHTML = "✖"
       document.querySelector('#turn').classList.toggle('turn-yellow');
+      document.querySelector('#turn').innerHTML = "O";
       setIsXTurn(false)
       setArrX([...arrX, e.target.id])
     }
@@ -69,6 +76,7 @@ export default function GameScreen(props) {
       e.target.classList.toggle('selected-circle');
       e.target.innerHTML = "O";
       document.querySelector('#turn').classList.toggle('turn-yellow');
+      document.querySelector('#turn').innerHTML ="✖"
       setIsXTurn(true)
       setArrO([...arrO, e.target.id])
     }
@@ -81,6 +89,7 @@ export default function GameScreen(props) {
       tile.innerHTML = "";
     });
     document.querySelector('#turn').classList = "turn-color"
+    document.querySelector('#turn').innerHTML ="✖"
     setIsXTurn(true);
     setArrO([])
     setArrX([])
@@ -98,7 +107,7 @@ export default function GameScreen(props) {
     <div className='game-total-container'>
         <div className='game-header'>
             <div className='icons'></div>
-            <div className='player-turn'><div id='turn' className='turn-color'></div><div className='turn-text'>Turn</div></div>
+            <div className='player-turn'><div id='turn' className='turn-color'>✖</div><div className='turn-text'>Turn</div></div>
             <div className='reset' onClick={resetBoard}><img alt="" src="https://img.icons8.com/material-rounded/24/000000/recurring-appointment.png"/></div>
         </div>
         <div className='tiles'>
@@ -114,9 +123,9 @@ export default function GameScreen(props) {
 
         </div>
         <div className='game-footer'>
-            <div className='score-cross'>Score</div>
-            <div className='score-tie'>Score (tie)</div>
-            <div className='score-circle'>Score</div>
+            <div className='score-cross'>Score<div className='score'>{scoreX}</div></div>
+            <div className='score-tie'>Score (tie)<div className='score'>{scoreTie}</div></div>
+            <div className='score-circle'>Score<div className='score'>{scoreO}</div></div>
         </div>
     </div>
   )
