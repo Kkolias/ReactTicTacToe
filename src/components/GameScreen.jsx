@@ -9,7 +9,7 @@ export default function GameScreen(props) {
   const [scoreX, setScoreX] = useState(0);
   const [scoreO, setScoreO] = useState(0);
   const [scoreTie, setScoreTie] = useState(0);
-  // const [isWinner, setWinner] = useState("")
+  
 
   const checkWinner = (arrX, arrO) => {
     const winningArrays = [
@@ -97,8 +97,8 @@ export default function GameScreen(props) {
     // tiles.classList.toggle('selected-cross')
   }
   useEffect(() => {
-    
-    if(props.isRematch === true) {
+    console.log("loop")
+    if(props.isRematch) {
       resetBoard()
     }
   }, [props.isRematch])
