@@ -64,13 +64,41 @@ export default function GameScreen(props) {
   const selectTile = (e) => {
     if(props.gameEnd) {return}
     if(e.target.classList.length === 2) {return}
-    if(isXTurn) {
+    // PVP X vuoro
+    if(isXTurn && !props.Pvb) {
       e.target.classList.toggle('selected-cross');
       e.target.innerHTML = "✖"
       document.querySelector('#turn').classList.toggle('turn-yellow');
       document.querySelector('#turn').innerHTML = "O";
       setIsXTurn(false)
       setArrX([...arrX, e.target.id])
+    }
+    // PVBOT pelaajan vuoro
+    if(isXTurn && props.isPvb) {
+      console.log("jaa")
+      e.target.classList.toggle('selected-cross');
+      e.target.innerHTML = "✖"
+      document.querySelector('#turn').classList.toggle('turn-yellow');
+      document.querySelector('#turn').innerHTML = "O";
+      setIsXTurn(false)
+      setArrX([...arrX, e.target.id])
+      
+      //botin vuoro
+      console.log(e.target.id)
+      
+      // let isUsed = true;
+      // // console.log(document.getElementById("1"))
+      // while (isUsed) {
+      //   let rndIndex = Math.floor(Math.random() * 10);
+      //   let move = document.getElementById(`${rndIndex}`)
+      //   if (move.classList.length === 2) {
+      //     console.log("ei voi pelata", move)
+      //   }
+      //   if ( move.classList.length === 1) {
+      //     console.log("voi pelata", move)
+      //     isUsed = false
+      //   }
+      // }
     }
     if(!isXTurn) {
       e.target.classList.toggle('selected-circle');
@@ -79,6 +107,7 @@ export default function GameScreen(props) {
       document.querySelector('#turn').innerHTML ="✖"
       setIsXTurn(true)
       setArrO([...arrO, e.target.id])
+      
     }
     // checkWinner(arrX, arrO)
   }
@@ -97,7 +126,7 @@ export default function GameScreen(props) {
     // tiles.classList.toggle('selected-cross')
   }
   useEffect(() => {
-    console.log("loop")
+    
     if(props.isRematch) {
       resetBoard()
     }

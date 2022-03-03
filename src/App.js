@@ -10,6 +10,7 @@ function App() {
   const [newGame, startGame] = useState(true);
   const [isWinner, setWinner] = useState("");
   const [isRematch, setRematch] = useState(false);
+  const [isPvb, setPvb] = useState(false);
   
   
  
@@ -17,8 +18,8 @@ function App() {
     <div className="App">
       <h2 className="header">Tic Tac Toe</h2>
       <div class="total-container">
-        {isGame && <GameScreen isRematch={isRematch} gameEnd={gameEnd} setRematch={setRematch} setWinner={setWinner} endGame={endGame}/>}
-        {newGame && <NewGame onStart={setGame} startVisible={startGame}/>}
+        {isGame && <GameScreen isPvb={isPvb} isRematch={isRematch} gameEnd={gameEnd} setRematch={setRematch} setWinner={setWinner} endGame={endGame}/>}
+        {newGame && <NewGame onStart={setGame} startVisible={startGame} setPvb={setPvb}/>}
       </div>
        {gameEnd && <WinningScreen setRematch={setRematch} setWinner={isWinner} startGame={startGame} setGame={setGame} endGame={endGame}/>}
     </div>
